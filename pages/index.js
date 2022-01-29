@@ -2,7 +2,6 @@ import { Box, Button, Text, TextField, Image } from "@skynexui/components";
 import React from "react";
 import { useRouter } from "next/router";
 import appConfig from "../config.json";
-
 function Titulo(props) {
   const Tag = props.tag || "h1";
   return (
@@ -18,7 +17,6 @@ function Titulo(props) {
     </>
   );
 }
-
 // Componente React
 // function HomePage() {
 //     // JSX
@@ -31,12 +29,10 @@ function Titulo(props) {
 //     )
 // }
 // export default HomePage
-
 export default function PaginaInicial() {
-  // const username = 'matheusromeiro';
+  // const username = 'omariosouto';
   const [username, setUsername] = React.useState("matheusromeiro");
   const roteamento = useRouter();
-
   return (
     <>
       <Box
@@ -77,6 +73,8 @@ export default function PaginaInicial() {
               infosDoEvento.preventDefault();
               console.log("Alguém submeteu o form");
               roteamento.push("/chat");
+              // roteamento.push('/chat?username=' + username);
+              roteamento.push(`/chat?username=${username}`);
               // window.location.href = '/chat';
             }}
             styleSheet={{
@@ -99,7 +97,6 @@ export default function PaginaInicial() {
             >
               {appConfig.name}
             </Text>
-
             {/* <input
                             type="text"
                             value={username}
@@ -145,7 +142,6 @@ export default function PaginaInicial() {
             />
           </Box>
           {/* Formulário */}
-
           {/* Photo Area */}
           <Box
             styleSheet={{
